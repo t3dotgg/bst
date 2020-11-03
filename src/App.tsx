@@ -8,8 +8,8 @@ const useCountdownCount = () => {
   const [urlMinute] = useQueryParam('minute');
   const startTime = new Date();
 
-  startTime.setHours(parseInt(urlHour));
-  startTime.setMinutes(parseInt(urlMinute));
+  startTime.setHours(urlHour === null ? 0 : parseInt(urlHour));
+  startTime.setMinutes(urlMinute === null ? 0 : parseInt(urlMinute));
   startTime.setSeconds(0);
 
   return startTime;
